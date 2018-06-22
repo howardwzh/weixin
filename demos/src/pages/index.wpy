@@ -2,39 +2,33 @@
 </style>
 <template>
   <view class="container">
-    <text>首页</text>
+    <info :info.sync="userInfo"/>
   </view>
 </template>
 
 <script>
   import wepy from 'wepy'
+  import Info from '../components/info'
 
   export default class Index extends wepy.page {
     config = {
       navigationBarTitleText: '首页'
     }
     components = {
+      info: Info
     }
 
     data = {
+      userInfo: {}
     }
 
     computed = {
-      now () {
-      }
     }
 
     methods = {
-      plus () {
-        this.mynum++
-      }
     }
 
     events = {
-      'index-emit': (...args) => {
-        let $event = args[args.length - 1]
-        console.log(`${this.$name} receive ${$event.name} from ${$event.source.$name}`)
-      }
     }
 
     onLoad() {
@@ -43,13 +37,6 @@
         if (userInfo) {
           self.userInfo = userInfo
         }
-        self.normalTitle = '标题已被修改'
-
-        self.setTimeoutTitle = '标题三秒后会被修改'
-        setTimeout(() => {
-          self.setTimeoutTitle = '到三秒了'
-          self.$apply()
-        }, 3000)
 
         self.$apply()
       })

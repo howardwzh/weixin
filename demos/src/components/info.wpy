@@ -1,0 +1,60 @@
+<style lang="less">
+</style>
+<template>
+  <view class="container">
+    <view>
+      <text>用户信息</text>
+      <view>
+        <text>昵称：</text><text>{{info.nickName}}</text>
+      </view>
+      <view>
+        <text>图标：</text><image style="width: 200px; height: 200px;" mode="{{item.mode}}" src="{{info.avatarUrl}}" />
+      </view>
+      <view wx:for="{{infoArray}}" wx:key="item.name" wx:for-item="item">
+        <text>{{item.name}}</text>
+        <image wx:if="{{item.name === 'avatarUrl'}}" style="width: 200px; height: 200px;" src="{{item.value}}" />
+        <text wx:else>{{item.value}}</text>
+      </view>
+    </view>
+  </view>
+</template>
+
+<script>
+  import wepy from 'wepy'
+
+  export default class Info extends wepy.component {
+    props = {
+      info: {
+        type: [Object],
+        default: {}
+      }
+    }
+    components = {
+    }
+
+    data = {
+    }
+
+    computed = {
+      infoArray () {
+        const infoArray = []
+        for (const k in this.info) {
+          infoArray.push({
+            name: k,
+            value: this.info[k]
+          })
+        }
+        return infoArray
+      }
+    }
+
+    methods = {
+    }
+
+    events = {
+    }
+
+    onLoad() {
+    }
+  }
+</script>
