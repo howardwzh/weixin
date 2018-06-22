@@ -1,6 +1,0 @@
-
-  <view class="container">
-    <view class="test" bindtap="handleViewTap">
-      test
-    </view>
-  </view>
