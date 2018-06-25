@@ -4,15 +4,9 @@
   <view class="container">
     <view>
       <text>用户信息</text>
-      <view>
-        <text>昵称：</text><text>{{info.nickName}}</text>
-      </view>
-      <view>
-        <text>图标：</text><image style="width: 200px; height: 200px;" mode="{{item.mode}}" src="{{info.avatarUrl}}" />
-      </view>
-      <view wx:for="{{infoArray}}" wx:key="item.name" wx:for-item="item">
-        <text>{{item.name}}</text>
-        <image wx:if="{{item.name === 'avatarUrl'}}" style="width: 200px; height: 200px;" src="{{item.value}}" />
+      <view wx:for="{{infoArray}}" wx:key="item.key" wx:for-item="item">
+        <text>{{item.name}}: </text>
+        <image wx:if="{{item.key === 'avatarUrl'}}" style="width: 200px; height: 200px;" src="{{item.value}}" />
         <text wx:else>{{item.value}}</text>
       </view>
     </view>
@@ -21,12 +15,17 @@
 
 <script>
   import wepy from 'wepy'
+  import * as DICT from '../utils/dictionaries'
 
   export default class Info extends wepy.component {
     props = {
       info: {
         type: [Object],
         default: {}
+      },
+      dictKey: {
+        type: [String],
+        default: 'userInfo'
       }
     }
     components = {
@@ -40,7 +39,8 @@
         const infoArray = []
         for (const k in this.info) {
           infoArray.push({
-            name: k,
+            key: k,
+            name: DICT[this.dictKey][k],
             value: this.info[k]
           })
         }
