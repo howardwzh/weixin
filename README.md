@@ -12,3 +12,28 @@
 2. 然后参考wepy和小程序的文档进行开发吧
 
 ### 开发笔记
+
+1. 全局安装或更新WePY命令行工具
+```
+npm install wepy-cli -g
+```
+
+2. 在开发目录中生成Demo开发项目, 1.7.0之后版本请移步wepy-cli文档
+```
+wepy init standard myproject
+```
+
+3. 切换至项目目录
+```
+cd myproject
+```
+
+4. 安装依赖
+```
+npm install
+```
+
+5. 开启实时编译
+```
+wepy build --watch
+```
