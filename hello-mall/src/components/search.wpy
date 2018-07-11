@@ -1,0 +1,27 @@
+<style scope lang="less">
+  .search {
+    width: 500rpx;
+    border: 1rpx solid #ddd;
+    padding: 8rpx 36rpx;
+    border-radius: 80rpx;
+    input {
+      color: #555;
+      font-size: 26rpx;
+    }
+  }
+</style>
+<template>
+  <view class="search">
+    <input type="text" placeholder="search" />
+  </view>
+</template>
+<script>
+  import wepy from 'wepy'
+
+  export default class Search extends wepy.component {
+    data = {}
+    events = {}
+    methods = {}
+    onLoad () {}
+  }
+</script>

@@ -89,8 +89,7 @@
 
   console.log('moduleA ignored: ', moduleA) // => moduleA ignored: {}
 
-
-  export default class Index extends wepy.page {
+  export default class Test extends wepy.page {
     config = {
       navigationBarTitleText: 'test'
     }

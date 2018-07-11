@@ -12,18 +12,38 @@
 <script>
 import wepy from 'wepy'
 import 'wepy-async-function'
-
-
 export default class extends wepy.app {
   config = {
     pages: [
-      'pages/index'
+      'pages/home',
+      'pages/search',
+      'pages/shop_cart',
+      'pages/test'
     ],
     window: {
       backgroundTextStyle: 'light',
       navigationBarBackgroundColor: '#fff',
       navigationBarTitleText: 'WeChat',
-      navigationBarTextStyle: 'black'
+      navigationBarTextStyle: 'black',
+      enablePullDownRefresh: false,
+      backgroundColor: '#EFEFEF'
+    },
+    tabBar: {
+      color: '#999999',
+      selectedColor: '#ff6a3c',
+      backgroundColor: '#ffffff',
+      borderStyle: 'black',
+      list: [{
+        pagePath: 'pages/home',
+        text: '首页'
+        // "iconPath": "images/icon_home.png",
+        // "selectedIconPath": "images/icon_home_active.png"
+      }, {
+        pagePath: 'pages/shop_cart',
+        text: '购物车'
+        // "iconPath": "images/icon_home.png",
+        // "selectedIconPath": "images/icon_home_active.png"
+      }]
     }
   }
 

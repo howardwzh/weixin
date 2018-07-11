@@ -1,0 +1,37 @@
+<style lang="less">
+
+</style>
+
+<template>
+  <view class="container">
+    <Search />
+  </view>
+</template>
+
+<script>
+  import wepy from 'wepy'
+  import testMixin from '../mixins/test'
+  import Search from '../components/search'
+
+  export default class Home extends wepy.page {
+    config = {
+      navigationBarTitleText: 'home'
+    }
+
+    components = {
+      Search
+    }
+
+    mixins = [testMixin]
+
+    data = {}
+
+    computed = {}
+
+    methods = {}
+
+    events = {}
+
+    onLoad() {}
+  }
+</script>
