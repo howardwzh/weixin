@@ -1,10 +1,48 @@
 <style lang="less">
-
+  .pos {
+    position: absolute;
+    left: 0;
+    right: 0;
+    display: flex;
+  }
+  .nav-list {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+  }
 </style>
 
 <template>
   <view class="container">
-    <Search />
+    <swiper indicator-dots autoplay circular>
+        <block wx:for="{{items}}" wx:key="">
+            <swiper-item>
+                <image mode="aspectFill" src="{{item.src}}"></image>
+            </swiper-item>
+        </block>
+    </swiper>
+    <view class="pos">
+      <navigator url="" open-type="navigate" hover-class="none">
+        <view>TODO: search</view>
+      </navigator>
+      <navigator url="{{}}" open-type="navigate" hover-class="none">
+        <view>TODO: message</view>
+      </navigator>
+    </view>
+    <view class="nav-list">
+      <navigator url="{{}}" open-type="navigate" hover-class="none">
+        <view>签到有礼</view>
+      </navigator>
+      <navigator url="{{}}" open-type="navigate" hover-class="none">
+        <view>换货专区</view>
+      </navigator>
+      <navigator url="{{}}" open-type="navigate" hover-class="none">
+        <view>特价专区</view>
+      </navigator>
+      <navigator url="{{}}" open-type="navigate" hover-class="none">
+        <view>我要补货</view>
+      </navigator>
+    </view>
   </view>
 </template>
 
@@ -28,7 +66,8 @@
 
     computed = {}
 
-    methods = {}
+    methods = {
+    }
 
     events = {}
 
