@@ -1,11 +1,15 @@
 <style lang="less">
+@import './assets/css/fontello';
+
 .container {
   height: 100%;
   display: flex;
   flex-direction: column;
-  align-items: center;
   justify-content: space-between;
   box-sizing: border-box;
+  view {
+    font-size: 30rpx;
+  }
 }
 </style>
 
@@ -20,7 +24,9 @@ export default class extends wepy.app {
       'pages/sort', // 分类
       'pages/shop_cart', // 购物车
       'pages/me', // 我
-      'pages/test'
+      'pages/test',
+      'pages/message'
+      // 'pages/product'
     ],
     window: {
       backgroundTextStyle: 'light',
@@ -37,24 +43,24 @@ export default class extends wepy.app {
       borderStyle: 'black',
       list: [{
         pagePath: 'pages/home',
-        text: '首页'
-        // "iconPath": "images/icon_home.png",
-        // "selectedIconPath": "images/icon_home_active.png"
+        text: '首页',
+        iconPath: 'assets/images/icon_home.png',
+        selectedIconPath: 'assets/images/icon_home_active.png'
       }, {
         pagePath: 'pages/sort',
-        text: '分类'
-        // "iconPath": "images/icon_home.png",
-        // "selectedIconPath": "images/icon_home_active.png"
+        text: '分类',
+        iconPath: 'assets/images/icon_classify.png',
+        selectedIconPath: 'assets/images/icon_classify_active.png'
       }, {
         pagePath: 'pages/shop_cart',
-        text: '购物车'
-        // "iconPath": "images/icon_home.png",
-        // "selectedIconPath": "images/icon_home_active.png"
+        text: '购物车',
+        iconPath: 'assets/images/icon_shop_cart.png',
+        selectedIconPath: 'assets/images/icon_shop_cart_active.png'
       }, {
         pagePath: 'pages/me',
-        text: '我'
-        // "iconPath": "images/icon_home.png",
-        // "selectedIconPath": "images/icon_home_active.png"
+        text: '我',
+        iconPath: 'assets/images/icon_info.png',
+        selectedIconPath: 'assets/images/icon_info_active.png'
       }]
     }
   }

@@ -3,45 +3,98 @@
     position: absolute;
     left: 0;
     right: 0;
-    display: flex;
+    .search_message {
+      width: 650rpx;
+      margin: 20rpx auto;
+      display: flex;
+      align-items: center;
+    }
+    .search {
+      border: 1px solid #fff;
+      border-radius: 100rpx;
+      height: 50rpx;
+      align-items: center;
+      display: flex;
+      background-color: rgba(0, 0, 0, 0.1);
+      color: #fff;
+    }
+    .message {
+      text-align: center;
+      margin-left: 20rpx;
+      color: #fff;
+      i {
+        font-size: 16px;
+      }
+    }
   }
   .nav-list {
     display: flex;
-    width: 100%;
     justify-content: space-between;
+    padding: 30rpx 50rpx;
+    navigator {
+      display: block;
+      width: auto;
+      height: auto;
+      text-align: center;
+    }
+    .nav_icon {
+      width: 80rpx;
+      height: 80rpx;
+      margin: 0 auto;
+    }
+  }
+  .swiper {
+    width: 100%;
+    height: 350rpx;
+    image {
+      width: 100%;
+      height: 100%;
+    }
   }
 </style>
 
 <template>
   <view class="container">
-    <swiper indicator-dots autoplay circular>
-        <block wx:for="{{items}}" wx:key="">
+    <swiper class="swiper" indicator-dots autoplay circular>
+        <block wx:for="{{adList}}" wx:key="key">
             <swiper-item>
-                <image mode="aspectFill" src="{{item.src}}"></image>
+                <image mode="aspectFill" src="{{item.picUrl}}"></image>
             </swiper-item>
         </block>
     </swiper>
     <view class="pos">
-      <navigator url="" open-type="navigate" hover-class="none">
-        <view>TODO: search</view>
-      </navigator>
-      <navigator url="{{}}" open-type="navigate" hover-class="none">
-        <view>TODO: message</view>
-      </navigator>
+      <view class="search_message">
+        <navigator class="search" url="search" open-type="navigate" hover-class="none">
+          <i class="icon-search-1"></i>
+          <view>搜索商品</view>
+        </navigator>
+        <navigator class="message" url="{{}}" open-type="navigate" hover-class="none">
+          <i class="icon-mail"></i>
+          <view>消息</view>
+        </navigator>
+      </view>
     </view>
     <view class="nav-list">
       <navigator url="{{}}" open-type="navigate" hover-class="none">
+        <image src="../assets/images/icon_nav_01_new.png" class="nav_icon"></image>
         <view>签到有礼</view>
       </navigator>
       <navigator url="{{}}" open-type="navigate" hover-class="none">
+        <image src="../assets/images/icon_nav_02_new.png" class="nav_icon"></image>
         <view>换货专区</view>
       </navigator>
       <navigator url="{{}}" open-type="navigate" hover-class="none">
+        <image src="../assets/images/icon_nav_03_new.png" class="nav_icon"></image>
         <view>特价专区</view>
       </navigator>
       <navigator url="{{}}" open-type="navigate" hover-class="none">
+        <image src="../assets/images/icon_nav_04_new.png" class="nav_icon"></image>
         <view>我要补货</view>
       </navigator>
+    </view>
+    <view wx:for-items="{{productList}}" wx:key="id">
+      {{item.id}}
+      <ItemPanel :syncItem.sync="item"></ItemPanel>
     </view>
   </view>
 </template>
@@ -49,7 +102,7 @@
 <script>
   import wepy from 'wepy'
   import testMixin from '../mixins/test'
-  import Search from '../components/search'
+  import ItemPanel from '../components/item-panel'
 
   export default class Home extends wepy.page {
     config = {
@@ -57,12 +110,48 @@
     }
 
     components = {
-      Search
+      ItemPanel
     }
 
     mixins = [testMixin]
 
-    data = {}
+    data = {
+      adList: [{
+        id: 111,
+        picUrl: '../assets/productPic/product_ad.jpg'
+      }, {
+        id: 222,
+        picUrl: '../assets/productPic/product_ad.jpg'
+      }, {
+        id: 333,
+        picUrl: '../assets/productPic/product_ad.jpg'
+      }], // 广告
+      productList: [{
+        id: 1111,
+        productUrl: 'product',
+        productPic: '../assets/productPic/product_item.jpg',
+        features: {
+          name: 'xxxx',
+          years: 'xxxx.xx.xx'
+        }
+      }, {
+        id: 2222,
+        productUrl: 'product',
+        productPic: '../assets/productPic/product_item.jpg',
+        features: {
+          name: 'xxxx',
+          years: 'xxxx.xx.xx'
+        }
+      }, {
+        id: 3333,
+        productUrl: 'product',
+        productPic: '../assets/productPic/product_item.jpg',
+        features: {
+          name: 'xxxx',
+          years: 'xxxx.xx.xx'
+        }
+      }]
+    }
 
     computed = {}
 

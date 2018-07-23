@@ -1,0 +1,31 @@
+<style lang="less">
+  .item-panel {
+    
+  }
+</style>
+<template>
+  <view class="item-panel">
+    {{syncItem.id}}
+    <navigator url="{{syncItem.productUrl}}" open-type="navigate" hover-class="none">
+      <img src="{{syncItem.productPic}}" alt="" />
+      <view wx:for="{{syncItem.features}}" wx:key="key" class="features">
+        <text class="label">{{item.label}}</text>
+        <text class="value">{{item.value}}</text>
+      </view>
+    </navigator>
+  </view>
+</template>
+<script>
+  import wepy from 'wepy'
+
+  export default class ItemPanel extends wepy.component {
+    props = {
+      syncItem: Object
+    }
+    computed = {
+      autoDo () {
+        console.log(this.syncItem)
+      }
+    }
+  }
+</script>
