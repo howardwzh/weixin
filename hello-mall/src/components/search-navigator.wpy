@@ -1,0 +1,53 @@
+<style scope lang="less">
+ .search-navigator {
+    border: 1px solid #fff;
+    border-radius: 100rpx;
+    height: 50rpx;
+    align-items: center;
+    display: flex;
+    background-color: rgba(0, 0, 0, 0.1);
+    color: #fff;
+    flex: 1;
+    .search-icon {
+      padding: 0 10rpx 0 30rpx;
+      font-size: 30rpx;
+    }
+    .search-placeholder {
+      font-size: 26rpx;
+    }
+    &-active {
+      background-color: rgba(0, 0, 0, 0.2);
+    }
+    &.in-sort {
+      width: 650rpx;
+      margin: 20rpx auto;
+      border-color: #aaa;
+      color: #aaa;
+      .search-placeholder {
+        color: #555;
+      }
+    }
+  }
+</style>
+<template>
+  <navigator class="search-navigator {{class}}" url="search" open-type="navigate" hover-class="search-active">
+    <i class="search-icon icon-search-1"></i>
+    <text class="search-placeholder">搜索商品</text>
+  </navigator>
+</template>
+<script>
+  import wepy from 'wepy'
+
+  export default class SearchNavigator extends wepy.component {
+    props = {
+      class: {
+        type: String,
+        default: ''
+      }
+    }
+    data = {}
+    events = {}
+    methods = {}
+    onLoad () {}
+  }
+</script>

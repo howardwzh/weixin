@@ -7,7 +7,7 @@
   flex-direction: column;
   justify-content: space-between;
   box-sizing: border-box;
-  view {
+  view, text {
     font-size: 30rpx;
   }
 }
@@ -19,9 +19,9 @@ import 'wepy-async-function'
 export default class extends wepy.app {
   config = {
     pages: [
+      'pages/sort', // 分类
       'pages/home', // 首页
       'pages/search', // 搜索
-      'pages/sort', // 分类
       'pages/shop_cart', // 购物车
       'pages/me', // 我
       'pages/message', // 消息中心
