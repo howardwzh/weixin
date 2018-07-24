@@ -17,6 +17,10 @@
       display: flex;
       background-color: rgba(0, 0, 0, 0.1);
       color: #fff;
+      flex: 1;
+      &-active {
+        background-color: rgba(0, 0, 0, 0.2);
+      }
     }
     .message {
       text-align: center;
@@ -24,6 +28,9 @@
       color: #fff;
       i {
         font-size: 16px;
+      }
+      &-active {
+        background-color: rgba(0, 0, 0, 0.2);
       }
     }
   }
@@ -64,11 +71,11 @@
     </swiper>
     <view class="pos">
       <view class="search_message">
-        <navigator class="search" url="search" open-type="navigate" hover-class="none">
+        <navigator class="search" url="search" open-type="navigate" hover-class="search-active">
           <i class="icon-search-1"></i>
           <view>搜索商品</view>
         </navigator>
-        <navigator class="message" url="{{}}" open-type="navigate" hover-class="none">
+        <navigator class="message" url="message" open-type="navigate" hover-class="message-active">
           <i class="icon-mail"></i>
           <view>消息</view>
         </navigator>
@@ -92,17 +99,14 @@
         <view>我要补货</view>
       </navigator>
     </view>
-    <view wx:for-items="{{productList}}" wx:key="id">
-      {{item.id}}
-      <ItemPanel :syncItem.sync="item"></ItemPanel>
-    </view>
+    <ProductList :productList.sync="productList"></ProductList>
   </view>
 </template>
 
 <script>
   import wepy from 'wepy'
   import testMixin from '../mixins/test'
-  import ItemPanel from '../components/item-panel'
+  import ProductList from '../components/product-list'
 
   export default class Home extends wepy.page {
     config = {
@@ -110,7 +114,7 @@
     }
 
     components = {
-      ItemPanel
+      ProductList
     }
 
     mixins = [testMixin]
@@ -130,26 +134,35 @@
         id: 1111,
         productUrl: 'product',
         productPic: '../assets/productPic/product_item.jpg',
-        features: {
-          name: 'xxxx',
-          years: 'xxxx.xx.xx'
-        }
+        features: [{
+          label: '名称',
+          value: '十分大方'
+        }, {
+          label: '生产季节',
+          value: '2008.2.12'
+        }]
       }, {
         id: 2222,
         productUrl: 'product',
         productPic: '../assets/productPic/product_item.jpg',
-        features: {
-          name: 'xxxx',
-          years: 'xxxx.xx.xx'
-        }
+        features: [{
+          label: '名称',
+          value: '十分大方'
+        }, {
+          label: '生产季节',
+          value: '2008.2.12'
+        }]
       }, {
         id: 3333,
         productUrl: 'product',
         productPic: '../assets/productPic/product_item.jpg',
-        features: {
-          name: 'xxxx',
-          years: 'xxxx.xx.xx'
-        }
+        features: [{
+          label: '名称',
+          value: '十分大方'
+        }, {
+          label: '生产季节',
+          value: '2008.2.12'
+        }]
       }]
     }
 

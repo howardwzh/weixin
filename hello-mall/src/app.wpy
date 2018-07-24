@@ -24,9 +24,8 @@ export default class extends wepy.app {
       'pages/sort', // 分类
       'pages/shop_cart', // 购物车
       'pages/me', // 我
-      'pages/test',
-      'pages/message'
-      // 'pages/product'
+      'pages/message', // 消息中心
+      'pages/product'
     ],
     window: {
       backgroundTextStyle: 'light',

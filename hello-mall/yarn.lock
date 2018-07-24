@@ -1922,7 +1922,7 @@ wepy-eslint@^1.5.3:
   version "1.5.4"
   resolved "https://registry.yarnpkg.com/wepy-eslint/-/wepy-eslint-1.5.4.tgz#56a1315daf1f09334ad6a1e8237eb823b50f82b3"
 
-wepy@^1.6.0:
+wepy@^1.7.2:
   version "1.7.2"
   resolved "https://registry.yarnpkg.com/wepy/-/wepy-1.7.2.tgz#679052401f2b1f4818644bc44f88b72975491a64"
 

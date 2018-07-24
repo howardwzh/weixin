@@ -1,0 +1,42 @@
+<style lang="less">
+  .product-list {
+    background-color: #ddd;
+    .product-item {
+      margin-top: 20rpx;
+      padding: 16rpx;
+      background-color: #fff;
+      image {
+        width: 100%;
+        height: 390rpx;
+      }
+    }
+  }
+</style>
+<template>
+  <view class="product-list">
+    <navigator wx:for="{{productList}}" wx:key="id" wx:for-item="productItem" url="{{productItem.productUrl}}" class="product-item" open-type="navigate" hover-class="none">
+      <image src="{{productItem.productPic}}" alt="" />
+      <view wx:for="{{productItem.features}}" wx:key="key" class="features">
+        <text class="label">{{item.label}}: </text>
+        <text class="value">{{item.value}}</text>
+      </view>
+    </navigator>
+  </view>
+</template>
+<script>
+  import wepy from 'wepy'
+
+  export default class ProductList extends wepy.component {
+    props = {
+      productList: {
+        type: Object,
+        default: []
+      }
+    }
+    computed = {
+      autoDo () {
+        console.log(this.syncItem)
+      }
+    }
+  }
+</script>
