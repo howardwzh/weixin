@@ -1,0 +1,34 @@
+<style lang="less">
+  .product-item {
+    margin-top: 20rpx;
+    padding: 16rpx;
+    background-color: #fff;
+    image {
+      width: 100%;
+      height: 390rpx;
+    }
+  }
+</style>
+<template>
+  <view class="product-item">
+    <navigator url="{{productItem.productUrl}}" class="" open-type="navigate" hover-class="none">
+      <image src="{{productItem.productPic}}" alt="" />
+      <view wx:for="{{productItem.features}}" wx:key="key" class="features">
+        <text class="label">{{item.label}}: </text>
+        <text class="value">{{item.value}}</text>
+      </view>
+    </navigator>
+  </view>
+</template>
+<script>
+  import wepy from 'wepy'
+
+  export default class ProductItem extends wepy.component {
+    props = {
+      productItem: {
+        type: Object,
+        default: {}
+      }
+    }
+  }
+</script>

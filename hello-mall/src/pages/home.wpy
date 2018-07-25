@@ -84,12 +84,16 @@
       </navigator>
     </view>
     <ProductList :productList.sync="productList"></ProductList>
+    <!-- <repeat for="{{productList}}">
+      <ProductItem :productItem.sync="item"></ProductItem>
+    </repeat> -->
   </view>
 </template>
 
 <script>
   import wepy from 'wepy'
   import testMixin from '../mixins/test'
+  // import ProductItem from '../components/product-item'
   import ProductList from '../components/product-list'
   import SearchNavigator from '../components/search-navigator'
 
@@ -99,6 +103,7 @@
     }
 
     components = {
+      // ProductItem,
       ProductList,
       SearchNavigator
     }
@@ -122,10 +127,10 @@
         productPic: '../assets/productPic/product_item.jpg',
         features: [{
           label: '名称',
-          value: '十分大方'
+          value: '十分大方1111'
         }, {
           label: '生产季节',
-          value: '2008.2.12'
+          value: '2008.2.12.1111'
         }]
       }, {
         id: 2222,
@@ -133,10 +138,10 @@
         productPic: '../assets/productPic/product_item.jpg',
         features: [{
           label: '名称',
-          value: '十分大方'
+          value: '十分大方.2222'
         }, {
           label: '生产季节',
-          value: '2008.2.12'
+          value: '2008.2.12.2222'
         }]
       }, {
         id: 3333,
@@ -144,10 +149,10 @@
         productPic: '../assets/productPic/product_item.jpg',
         features: [{
           label: '名称',
-          value: '十分大方'
+          value: '十分大方.3333'
         }, {
           label: '生产季节',
-          value: '2008.2.12'
+          value: '2008.2.12.3333'
         }]
       }]
     }
