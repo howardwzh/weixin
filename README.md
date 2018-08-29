@@ -37,3 +37,13 @@ npm install
 ```
 wepy build --watch
 ```
+
+
+### 公众号-订阅号
+
+#### 注册
+
+#### 菜单设置
+
+- 个人账号，菜单跳链接是不可以的，只能跳[关联的小程序](https://www.ifanr.com/minapp/862084)
+
