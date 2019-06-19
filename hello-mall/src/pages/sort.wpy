@@ -4,8 +4,12 @@
     height: 100%;
     .sort-list {
       width: 200rpx;
-      height: 500px;
-      border-right: 1px solid #333;
+      height: 100%;
+      border-right: 1px solid #CCBD14;
+      color: #14A7CC;
+      view {
+        padding: 20rpx;
+      }
     }
     .sort-content {
       flex: 1;
@@ -18,11 +22,15 @@
     <SearchNavigator class="in-sort"></SearchNavigator>
     <view class="sort-tabs">
       <scroll-view class="sort-list">
-        <view>上衣</view>
-        <view>裤子</view>
-        <view>鞋子</view>
+        <view @tap="switchTab('cloth')">上衣</view>
+        <view @tap="switchTab('shoes')">裤子</view>
+        <view @tap="switchTab('pants')">鞋子</view>
       </scroll-view>
-      <scroll-view class="sort-content"></scroll-view>
+      <scroll-view class="sort-content">
+        <view wx:if="{{currentSort === 'cloth'}}"><ProductList :productList.sync="productList"></ProductList></view>
+        <view wx:if="{{currentSort === 'shoes'}}">裤子裤子裤子</view>
+        <view wx:if="{{currentSort === 'pants'}}">鞋子鞋子</view>
+      </scroll-view>
     </view>
   </view>
 </template>
@@ -31,18 +39,61 @@
   import wepy from 'wepy'
   import testMixin from '../mixins/test'
   import SearchNavigator from '../components/search-navigator'
+  import ProductList from '../components/product-list'
 
   export default class Sort extends wepy.page {
     config = {
       navigationBarTitleText: 'sort'
     }
     components = {
-      SearchNavigator
+      SearchNavigator,
+      ProductList
     }
     mixins = [testMixin]
-    data = {}
+    data = {
+      currentSort: 'cloth', // 广告
+      productList: [{
+        id: 1111,
+        productUrl: 'product',
+        productPic: '../assets/productPic/product_item.jpg',
+        features: [{
+          label: '名称',
+          value: '十分大方1111'
+        }, {
+          label: '生产季节',
+          value: '2008.2.12.1111'
+        }]
+      }, {
+        id: 2222,
+        productUrl: 'product',
+        productPic: '../assets/productPic/product_item.jpg',
+        features: [{
+          label: '名称',
+          value: '十分大方.2222'
+        }, {
+          label: '生产季节',
+          value: '2008.2.12.2222'
+        }]
+      }, {
+        id: 3333,
+        productUrl: 'product',
+        productPic: '../assets/productPic/product_item.jpg',
+        features: [{
+          label: '名称',
+          value: '十分大方.3333'
+        }, {
+          label: '生产季节',
+          value: '2008.2.12.3333'
+        }]
+      }]
+    }
     computed = {}
-    methods = {}
+    methods = {
+      switchTab(sort) {
+        this.currentSort = sort
+        this.$apply()
+      }
+    }
     events = {}
     onLoad() {}
   }
